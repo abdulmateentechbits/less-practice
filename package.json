@@ -1,0 +1,15 @@
+{
+  "name": "1.-less-tutorials",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch-less": "less-watch-compiler css/styles.less css/styles.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "less-watch-compiler": "^1.16.3"
+  }
+}

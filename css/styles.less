@@ -1,0 +1,63 @@
+@title-color:#B0117D;
+@card-container-width:32%;
+@custom-border-radius: 5px;
+@custom-text-color:#000000;
+@center-contianer : 90px auto;
+@custom-border: 1px solid #000000;
+@custom-box-shadow: 0px 0px 10px #000000;
+@custom-box-shadow-hover: 0px 0px 10px #000000;
+@custom-box-shadow-focus: 0px 0px 10px #000000;
+@custom-box-shadow-active: 0px 0px 10px #000000;
+
+
+// Selector
+@my-selector:card-description;
+@read-more:read-more-link;
+@card-title:card-title;
+
+
+
+// Usage
+.@{my-selector}{
+    font-weight: normal;
+    line-height: 24px;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.@{read-more}{
+    color: blueviolet;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+}
+.@{card-title}{
+    border-bottom: 1px solid gray;
+}
+
+
+*{
+    margin: 0;
+}
+
+.card{
+    width: @card-container-width;
+    margin:@center-contianer;
+    border: @custom-border;
+    border-radius: @custom-border-radius;
+    
+}
+.card-image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.card-content{
+    padding-left: 23px;
+    padding-right: 23px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
