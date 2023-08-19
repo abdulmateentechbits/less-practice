@@ -1,63 +1,164 @@
-@title-color:#B0117D;
-@card-container-width:32%;
-@custom-border-radius: 5px;
-@custom-text-color:#000000;
-@center-contianer : 90px auto;
-@custom-border: 1px solid #000000;
-@custom-box-shadow: 0px 0px 10px #000000;
-@custom-box-shadow-hover: 0px 0px 10px #000000;
-@custom-box-shadow-focus: 0px 0px 10px #000000;
-@custom-box-shadow-active: 0px 0px 10px #000000;
+@card-width: 400px;
+// colors palette
+@white-color: #FFFFFF;
 
+// images url
+@images: '../images';
 
-// Selector
-@my-selector:card-description;
-@read-more:read-more-link;
-@card-title:card-title;
+// selector
+@card-content: card-content;
 
+// import statements
+@themes: "../src/themes";
 
+@import "@{themes}/custom.less";
+@import "@{themes}/style.less";
 
-// Usage
-.@{my-selector}{
-    font-weight: normal;
-    line-height: 24px;
-    font-size: 20px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-}
-.@{read-more}{
-    color: blueviolet;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 15px;
-}
-.@{card-title}{
-    border-bottom: 1px solid gray;
+// properties
+@box-shadow: box-shadow;
+
+// variable variable
+@border-color: #909090;
+@header-content-border: border-color;
+
+// lazy evaluation
+
+// valid less snippets
+.card-title {
+    font-family: @var;
 }
 
+@var: @title-font;
+@title-font: 'Courier New', Courier, monospace;
 
-*{
-    margin: 0;
+.header-container {
+    margin: 10px 126px;
 }
 
-.card{
-    width: @card-container-width;
-    margin:@center-contianer;
-    border: @custom-border;
-    border-radius: @custom-border-radius;
-    
-}
-.card-image{
+header {
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid @border-color;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px;
+
+}
+
+header {
+
+    .header-left,
+    .header-right {
+        height: 30px;
+        width: 45%;
+    }
+}
+
+
+.header-left {
+    display: flex;
+    padding-left: 5px;
+}
+
+.header-right {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 9px;
+    padding-right: 5px;
+}
+
+.contact-info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+}
+
+.phone,
+.email {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.direction {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    margin-top: 10px;
+    flex-wrap: wrap;
 }
-.card-content{
-    padding-left: 23px;
-    padding-right: 23px;
-    padding-top: 20px;
+
+.card {
+    width: @card-width;
+    position: relative;
+    color: @white-color;
+    overflow: hidden;
+    border-radius: 12px;
+    @{box-shadow}: 0px 4px 18px rgba(0, 0, 0, 0.2);
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("@{images}/bg-image.jpg") no-repeat center center;
+    background-size: cover;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+
+.@{card-content} {
+    padding: 10px 20px
+}
+
+.card-title {
+    border-bottom: 1px solid #ccc;
+}
+
+.read-more-link {
+    text-decoration: none;
+    color: @white-color;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
     padding-bottom: 20px;
 }
 
+.card-description {
+    line-height: 24px;
+    font-size: 20px;
+    padding-bottom: 20px;
+    margin-top: 10px;
+}
 
+// section 1 content
+@fontSize: 12px;
+
+.content-1-wrapper {
+    @fontSize: 14px;
+    p {
+        font-size: @fontSize;
+    }
+    @fontSize: 44px;
+}
+
+// Media query for mobile view
+@media (max-width: 768px) {
+    .header-container {
+        display: none;
+    }
+}
